@@ -23,7 +23,6 @@
       <nav class="nav" aria-label="Primary">
         <a href="../../">Home</a>
         <a href="../../work/farmguard/" aria-current="page">Work</a>
-        <a href="../../oss/">Open Source</a>
         <a href="../../about/">About</a>
         <a href="../../contact/">Contact</a>
       </nav>
@@ -44,12 +43,12 @@
       <p>The reproduction uses the public API, counts fetch invocations, and starts a local HTTP server. No API keys or external model calls are required.</p>
 
       <h2>Upstream outcome</h2>
-      <p>I reported the behavior in <a href="https://github.com/mastra-ai/mastra/issues/25889">mastra#25889</a>. The project later merged <a href="https://github.com/mastra-ai/mastra/pull/26164">#26164</a>, which stops retries when the request is aborted. The repository itself is a reproduction and report, not the upstream fix.</p>
+      <p>The project later fixed the cancellation path so aborted requests stop retrying. This repository is a reproduction, not the upstream fix.</p>
 
       <h2>Links</h2>
       <p><a href="https://github.com/abandonedempl/agent-reliability-repros">Repository</a></p>
 
-      <p class="arrow"><a href="../../">← Back to home</a> · <a href="../../oss/">Open source</a></p>
+      <p class="arrow"><a href="../../">← Back to home</a></p>
     </article>
   </main>
   <footer class="site-footer">
