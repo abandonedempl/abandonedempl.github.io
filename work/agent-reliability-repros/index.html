@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent reliability repros · 吴官炫</title>
+  <meta name="description" content="Minimal, runnable reproductions of agent SDK reliability issues.">
+  <meta name="theme-color" content="#f6f5fb">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <script src="../../js/theme.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="../../">
+        <strong>吴官炫</strong>
+        <span>Guanxuan Wu</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../../">Home</a>
+        <a href="../../work/farmguard/" aria-current="page">Work</a>
+        <a href="../../oss/">Open Source</a>
+        <a href="../../about/">About</a>
+        <a href="../../contact/">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">◐</button>
+    </div>
+  </header>
+  <main id="main">
+
+    <article class="wrap page prose">
+      <header>
+        <p class="kicker">Open source · 2026.10</p>
+        <h1>Agent reliability repros</h1>
+        <p class="muted">Minimal, runnable reproductions of agent SDK reliability issues.</p>
+      </header>
+
+      <h2>What it is</h2>
+      <p>This repository holds small reproductions of agent SDK behavior. It currently includes a Mastra <code>fetchWithRetry</code> cancellation case: an already-aborted request still retried through backoff instead of settling promptly.</p>
+      <p>The reproduction uses the public API, counts fetch invocations, and starts a local HTTP server. No API keys or external model calls are required.</p>
+
+      <h2>Upstream outcome</h2>
+      <p>I reported the behavior in <a href="https://github.com/mastra-ai/mastra/issues/25889">mastra#25889</a>. The project later merged <a href="https://github.com/mastra-ai/mastra/pull/26164">#26164</a>, which stops retries when the request is aborted. The repository itself is a reproduction and report, not the upstream fix.</p>
+
+      <h2>Links</h2>
+      <p><a href="https://github.com/abandonedempl/agent-reliability-repros">Repository</a></p>
+      <p class="muted">The original repository lived on my previous GitHub account, jayfeng7. History was copied to this account in November 2026.</p>
+
+      <p class="arrow"><a href="../../">← Back to home</a> · <a href="../../oss/">Open source</a></p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>吴官炫 · Hangzhou · <a href="mailto:felix815811045@outlook.com">felix815811045@outlook.com</a></div>
+      <div><a href="https://github.com/abandonedempl">GitHub</a> · <a href="https://abandonedempl.github.io">abandonedempl.github.io</a></div>
+    </div>
+  </footer>
+</body>
+</html>
