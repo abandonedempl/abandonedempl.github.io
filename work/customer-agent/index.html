@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer-operations agent · 吴官炫</title>
+  <meta name="description" content="An independently built workbench for cross-border WhatsApp customer operations.">
+  <meta name="theme-color" content="#f6f5fb">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <script src="../../js/theme.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="../../">
+        <strong>吴官炫</strong>
+        <span>Guanxuan Wu</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../../" >Home</a>
+        <a href="../../work/farmguard/" aria-current="page">Work</a>
+        <a href="../../about/" >About</a>
+        <a href="../../contact/" >Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">◐</button>
+    </div>
+  </header>
+  <main id="main">
+
+    <article class="wrap page prose">
+      <header>
+        <p class="kicker">Independent design and development · 2026.09–2026.11</p>
+        <h1>Cross-border customer-operations agent</h1>
+        <p class="muted">A workbench for WhatsApp customer communication and opportunity follow-up.</p>
+      </header>
+
+      <h2>Problem</h2>
+      <p>In cross-border sales, WhatsApp conversations and opportunity follow-up were scattered, justifications were inconsistent, and long-running tasks were difficult to resume after an interruption.</p>
+
+      <h2>Role</h2>
+      <p>I independently designed and built a customer-operations workbench that combined data access, knowledge, durable execution, multi-agent collaboration, and layered evaluation.</p>
+
+      <h2>Approach</h2>
+      <p>MCP servers were assembled per request over Streamable HTTP. Parameters were validated with Zod, and access was scoped by role. Tool effects were graded into four levels — read-only, reversible update, internal follow-up, and outbound send — and outbound sends required human approval. Authorization did not depend on what the prompt claimed.</p>
+      <p>Company knowledge, quoting policy, and past dispositions were stored as wiki entries with revisions. Business policy and customer-confirmed facts were injected in layers, and knowledge version was used as a degradable ranking signal, so already confirmed local facts remained available if an external service was down.</p>
+      <p>A PostgreSQL durable queue partitioned work by contact. Claims used SKIP LOCKED in short transactions, so work for the same customer stayed serial while work across customers could run in parallel. Leases were re-checked before side effects; a lost lease stopped the task and re-queued it, and unconfirmed writes stayed in a pending-reconciliation state.</p>
+      <p>Read-only specialist agents compared fields and wiki versions with value hashes and revisions. Subtasks were bound to an execution attempt and could fail locally. Contradictory sources or failed approvals remained in a needs-review state and were not overwritten by a high semantic score.</p>
+
+      <h2>Evaluation</h2>
+      <p>Regression cases were organized across tool calls, task execution, and evidence quality, covering unauthorized calls, expired leases, and conflicting sources. Desensitized failures and synthetic counterexamples were kept as versioned samples. After a schema, prompt, or tool-allowlist change, the suite was replayed automatically.</p>
+
+      <p class="arrow"><a href="../../">← Back to home</a> · <a href="../farmguard/">Previous case</a></p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>吴官炫 · Hangzhou · <a href="mailto:felix815811045@outlook.com">felix815811045@outlook.com</a></div>
+      <div><a href="https://github.com/abandonedempl">GitHub</a> · <a href="https://abandonedempl.github.io">abandonedempl.github.io</a></div>
+    </div>
+  </footer>
+</body>
+</html>

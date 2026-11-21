@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FarmGuard · 吴官炫</title>
+  <meta name="description" content="FarmGuard: a compliance and anomaly-investigation agent built at Vanjna.">
+  <meta name="theme-color" content="#f6f5fb">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <script src="../../js/theme.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="../../">
+        <strong>吴官炫</strong>
+        <span>Guanxuan Wu</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../../" >Home</a>
+        <a href="../../work/farmguard/" aria-current="page">Work</a>
+        <a href="../../about/" >About</a>
+        <a href="../../contact/" >Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">◐</button>
+    </div>
+  </header>
+  <main id="main">
+
+    <article class="wrap page prose">
+      <header>
+        <p class="kicker">Internship · Vanjna (杭州梵域智能科技) · 2026.06–2026.09</p>
+        <h1>FarmGuard</h1>
+        <p class="muted">Compliance and anomaly-investigation agent for livestock operations.</p>
+      </header>
+
+      <h2>Problem</h2>
+      <p>Livestock operations had to cross-check medication, vaccination, mortality, inventory, and environmental data by hand. Inconsistent investigation order made it easy to miss a critical check, and findings were hard to audit later.</p>
+
+      <h2>Role</h2>
+      <p>AI application development intern. I helped build a long-running compliance review agent, with responsibility for data modeling, tool access, investigation workflow, and quality evaluation, so operators could receive traceable risk reports.</p>
+
+      <h2>Approach</h2>
+      <p>I unified domain schemas for environment, veterinary drugs, inventory, mortality, and vaccination, then wrapped queries — environment curves, inventory-versus-medication checks, mortality statistics, and vaccination reviews — as MCP tools with a CLI for debugging. Every tool response carried shed, batch, time window, source, and timestamp, so the agent could gather evidence against an investigation plan.</p>
+      <p>Investigation steps were arranged as an executable SOP, with conditions for collecting more evidence, escalating, stopping, or asking for human confirmation. We compared this fixed flow with unconstrained investigation on abnormal cases, and found that the SOP reduced unhelpful tool calls while keeping report structure consistent.</p>
+      <p>For long investigations, platform rules, batch tasks, tool evidence, and historical summaries were split into context blocks with priority and character budgets. When the budget was exceeded, lower-priority history was summarized first and recoverable records were trimmed, while current rules, evidence citations, and unfinished steps were always retained.</p>
+      <p>Structured memory stored medication, vaccination, mortality, inventory, and disposition records as fact, decision, lesson, or open loop. Retrieval used FTS5 and BM25, filtered by farm, batch, time, and rule version. Memories below a relevance threshold were not injected, which reduced the chance that stale cases would mislead a later judgment.</p>
+
+      <h2>Evaluation and outcome</h2>
+      <p>A dataset of normal, abnormal, and ambiguous cases covered inventory mismatches, late vaccination records, unusual mortality, excess medication, and unreported environmental deterioration. Each run recorded the prompt, tool calls, evidence, and approval trace. Failures were attributed by evidence coverage, false positives, and unauthorized actions; after a schema, SOP, or prompt fix, cases were replayed to block regressions. The system reached an internal pilot.</p>
+
+      <p class="arrow"><a href="../../">← Back to home</a> · <a href="../customer-agent/">Next case</a></p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>吴官炫 · Hangzhou · <a href="mailto:felix815811045@outlook.com">felix815811045@outlook.com</a></div>
+      <div><a href="https://github.com/abandonedempl">GitHub</a> · <a href="https://abandonedempl.github.io">abandonedempl.github.io</a></div>
+    </div>
+  </footer>
+</body>
+</html>
