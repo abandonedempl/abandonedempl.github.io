@@ -12,6 +12,8 @@
 
   function apply(theme) {
     root.setAttribute("data-theme", theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", theme === "dark" ? "#0f1118" : "#f6f5fb");
     var btn = document.querySelector("[data-theme-toggle]");
     if (btn) btn.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
   }

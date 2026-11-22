@@ -4,13 +4,70 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page not found · 吴官炫</title>
+  <meta name="description" content="This page is not here.">
+  <meta property="og:title" content="Page not found · 吴官炫">
+  <meta property="og:description" content="This page is not here.">
+  <meta property="og:url" content="https://abandonedempl.github.io/404.html">
+  <link rel="canonical" href="https://abandonedempl.github.io/404.html">
+  <meta name="theme-color" content="#f6f5fb">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <script>
+    (function () {
+      var t = "light";
+      try {
+        var s = localStorage.getItem("theme");
+        if (s === "light" || s === "dark") t = s;
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches) t = "dark";
+      } catch (e) {}
+      document.documentElement.setAttribute("data-theme", t);
+      var c = document.querySelector('meta[name="theme-color"]');
+      if (c) c.setAttribute("content", t === "dark" ? "#0f1118" : "#f6f5fb");
+    })();
+  </script>
+  <script src="/js/theme.js" defer></script>
 </head>
 <body>
-  <main class="wrap page">
-    <p class="kicker">404</p>
-    <h1>This page is not here.</h1>
-    <p class="muted"><a href="/">Return home</a></p>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="/">
+        <strong>吴官炫</strong>
+        <span>Guanxuan Wu</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/work/">Work</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">◐</button>
+    </div>
+  </header>
+  <main id="main">
+
+    <article class="wrap page">
+      <p class="kicker">404</p>
+      <h1>This page is not here.</h1>
+      <p class="muted"><a href="/">Return home</a></p>
+    </article>
   </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>吴官炫 · Hangzhou · <a href="mailto:felix815811045@outlook.com">felix815811045@outlook.com</a></div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/work/">Work</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://github.com/abandonedempl">GitHub</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>

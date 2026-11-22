@@ -5,11 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About · 吴官炫</title>
   <meta name="description" content="Education and skills of 吴官炫.">
+  <meta property="og:title" content="About · 吴官炫">
+  <meta property="og:description" content="Education and skills of 吴官炫.">
+  <meta property="og:url" content="https://abandonedempl.github.io/about/">
+  <link rel="canonical" href="https://abandonedempl.github.io/about/">
   <meta name="theme-color" content="#f6f5fb">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <script>
+    (function () {
+      var t = "light";
+      try {
+        var s = localStorage.getItem("theme");
+        if (s === "light" || s === "dark") t = s;
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches) t = "dark";
+      } catch (e) {}
+      document.documentElement.setAttribute("data-theme", t);
+      var c = document.querySelector('meta[name="theme-color"]');
+      if (c) c.setAttribute("content", t === "dark" ? "#0f1118" : "#f6f5fb");
+    })();
+  </script>
   <script src="../js/theme.js" defer></script>
 </head>
 <body>
@@ -22,7 +42,7 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="../">Home</a>
-        <a href="../work/farmguard/">Work</a>
+        <a href="../work/">Work</a>
         <a href="../about/" aria-current="page">About</a>
         <a href="../contact/">Contact</a>
       </nav>
@@ -42,8 +62,8 @@
         <p>I am a computer science master’s student at The University of Hong Kong. My work focuses on long-running LLM agents that can use tools safely, keep evidence and memory under budget, and be evaluated against realistic traces.</p>
       </section>
 
-      <h2 class="kicker" style="margin-top:36px">Education</h2>
-      <table>
+      <h2>Education</h2>
+      <table class="education-table">
         <thead>
           <tr><th>Institution</th><th>Degree</th><th>Period</th></tr>
         </thead>
@@ -60,9 +80,9 @@
           </tr>
         </tbody>
       </table>
-      <p class="muted" style="margin-top:12px">English: IELTS 7.5; CET-6.</p>
+      <p class="muted education-note">English: IELTS 7.5; CET-6.</p>
 
-      <h2 class="kicker" style="margin-top:36px">Skills</h2>
+      <h2>Skills</h2>
       <div class="skill-groups">
         <article class="card">
           <h2>Agents &amp; evaluation</h2>
@@ -70,7 +90,7 @@
         </article>
         <article class="card">
           <h2>Engineering</h2>
-          <p class="muted">TypeScript, Python, Node.js, Hono, Electron, Docker, and SQLite. Experience with incremental JSONL recovery patterns in client applications.</p>
+          <p class="muted">TypeScript, Python, Node.js, Hono, Electron, Docker, PostgreSQL, and SQLite. Experience with incremental JSONL recovery patterns in client applications.</p>
         </article>
       </div>
     </article>
@@ -78,7 +98,13 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <div>吴官炫 · Hangzhou · <a href="mailto:felix815811045@outlook.com">felix815811045@outlook.com</a></div>
-      <div><a href="https://github.com/abandonedempl">GitHub</a> · <a href="https://abandonedempl.github.io">abandonedempl.github.io</a></div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../">Home</a>
+        <a href="../work/">Work</a>
+        <a href="../about/">About</a>
+        <a href="../contact/">Contact</a>
+        <a href="https://github.com/abandonedempl">GitHub</a>
+      </nav>
     </div>
   </footer>
 </body>

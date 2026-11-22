@@ -93,6 +93,7 @@ h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.15; }
 .nav {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 6px;
 }
 .nav a {
@@ -120,7 +121,8 @@ h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.15; }
 }
 .theme-toggle:focus-visible,
 .nav a:focus-visible,
-.btn:focus-visible {
+.btn:focus-visible,
+.footer-nav a:focus-visible {
   outline: 2px solid var(--accent-end);
   outline-offset: 2px;
 }
@@ -204,7 +206,7 @@ h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.15; }
   box-shadow: var(--shadow);
   padding: 22px 22px 20px;
 }
-.card.span-2 { grid-column: 1 / -1; }
+.span-2 { grid-column: 1 / -1; }
 .card h2 {
   font-size: 22px;
   margin: 6px 0 10px;
@@ -247,6 +249,10 @@ h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.15; }
 }
 .page header { margin-bottom: 28px; }
 .page h1 { font-size: clamp(32px, 5vw, 52px); }
+.page > h2 {
+  margin-top: 36px;
+  font-size: 22px;
+}
 .prose { max-width: 46rem; }
 .prose p, .prose ul { margin-top: 14px; color: var(--ink); }
 .prose h2 {
@@ -254,6 +260,8 @@ h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.15; }
   font-size: 22px;
 }
 .prose .muted, .muted { color: var(--muted); }
+.education-note { margin-top: 12px; }
+.prose li + li { margin-top: 8px; }
 
 table {
   width: 100%;
@@ -294,11 +302,17 @@ th {
   padding: 14px 0;
   border-bottom: 1px solid var(--line);
 }
-.contact-list span {
+.contact-list span.label {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 12px;
   color: var(--muted);
   min-width: 72px;
+}
+.contact-list .value {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  min-width: 0;
 }
 
 .site-footer {
@@ -312,13 +326,54 @@ th {
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+  align-items: center;
 }
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.footer-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.footer-nav a:hover { color: var(--ink); }
 
 @media (max-width: 800px) {
   .bento, .work-grid, .skill-groups { grid-template-columns: 1fr; }
-  .card.span-2 { grid-column: auto; }
-  .nav { display: none; }
+  .span-2 { grid-column: auto; }
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+  .wordmark { margin-right: auto; }
+  .nav {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    gap: 2px;
+    padding-bottom: 6px;
+  }
+  .nav a {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
   .hero { padding-top: 48px; }
+
+  .education-table thead { display: none; }
+  .education-table, .education-table tbody, .education-table tr, .education-table td {
+    display: block;
+    width: 100%;
+  }
+  .education-table tr {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .education-table td {
+    padding: 2px 0;
+    border-bottom: 0;
+  }
+  .education-table td:first-child { font-weight: 600; }
 }
 
 @media (prefers-reduced-motion: reduce) {

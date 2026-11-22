@@ -5,11 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Agent reliability repros · 吴官炫</title>
   <meta name="description" content="Minimal, runnable reproductions of agent SDK reliability issues.">
+  <meta property="og:title" content="Agent reliability repros · 吴官炫">
+  <meta property="og:description" content="Minimal, runnable reproductions of agent SDK reliability issues.">
+  <meta property="og:url" content="https://abandonedempl.github.io/work/agent-reliability-repros/">
+  <link rel="canonical" href="https://abandonedempl.github.io/work/agent-reliability-repros/">
   <meta name="theme-color" content="#f6f5fb">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
+  <script>
+    (function () {
+      var t = "light";
+      try {
+        var s = localStorage.getItem("theme");
+        if (s === "light" || s === "dark") t = s;
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches) t = "dark";
+      } catch (e) {}
+      document.documentElement.setAttribute("data-theme", t);
+      var c = document.querySelector('meta[name="theme-color"]');
+      if (c) c.setAttribute("content", t === "dark" ? "#0f1118" : "#f6f5fb");
+    })();
+  </script>
   <script src="../../js/theme.js" defer></script>
 </head>
 <body>
@@ -22,7 +42,7 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="../../">Home</a>
-        <a href="../../work/farmguard/" aria-current="page">Work</a>
+        <a href="../../work/" aria-current="page">Work</a>
         <a href="../../about/">About</a>
         <a href="../../contact/">Contact</a>
       </nav>
@@ -43,18 +63,24 @@
       <p>The reproduction uses the public API, counts fetch invocations, and starts a local HTTP server. No API keys or external model calls are required.</p>
 
       <h2>Upstream outcome</h2>
-      <p>The project later fixed the cancellation path so aborted requests stop retrying. This repository is a reproduction, not the upstream fix.</p>
+      <p>The cancellation path was later fixed upstream in <a href="https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.75.0">@mastra/core@1.75.0</a> (<a href="https://github.com/mastra-ai/mastra/pull/26164">mastra#26164</a>), so aborted requests stop retrying. This repository is a reproduction, not the upstream fix.</p>
 
       <h2>Links</h2>
       <p><a href="https://github.com/abandonedempl/agent-reliability-repros">Repository</a></p>
 
-      <p class="arrow"><a href="../../">← Back to home</a></p>
+      <p class="arrow"><a href="../../">← Back to home</a> · <a href="../">All work</a> · <a href="../crm-agent-lab/">Previous case</a></p>
     </article>
   </main>
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <div>吴官炫 · Hangzhou · <a href="mailto:felix815811045@outlook.com">felix815811045@outlook.com</a></div>
-      <div><a href="https://github.com/abandonedempl">GitHub</a> · <a href="https://abandonedempl.github.io">abandonedempl.github.io</a></div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../../">Home</a>
+        <a href="../../work/">Work</a>
+        <a href="../../about/">About</a>
+        <a href="../../contact/">Contact</a>
+        <a href="https://github.com/abandonedempl">GitHub</a>
+      </nav>
     </div>
   </footer>
 </body>
